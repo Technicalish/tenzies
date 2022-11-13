@@ -14,6 +14,7 @@ var { random } = props;
     <div className="won">
       <img src={`/dice-${random}.svg`} alt={random}/><p> was Tenzied!</p>
     </div>
+    
   )
 }
 export default Won;
