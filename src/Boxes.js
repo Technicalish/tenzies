@@ -12,7 +12,7 @@ var { boxes, boxClicked, tenzy, setBoxes, alarm } = props;
   return (
     boxes.map(({random, change, id}, i) => {
       return (
-        <div key={id} className={`box${generateClasses(change)}`} onClick={(e) => boxClicked(e, i, random, change, tenzy, setBoxes)}>
+        <div key={id} className={`box${generateClasses(change)}`} onClick={(e) => boxClicked(e, i, random, change, tenzy, alarm, setBoxes, boxes)}>
           <img src={`/dice-${random}.svg`} alt={random}/>
         </div>
       )

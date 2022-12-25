@@ -36,9 +36,13 @@ var [height, width] = HW;
   container.style.width = size + "px";
   var font = `normal normal 900 ${value}px/${value}px  sans-serif`;
   button.style.font = font;
-  window.addEventListener("resize", resized);
   }, [HW]);
+  useEffect(() => {
+  window.addEventListener("resize", resized);
+  }, []);
+  useEffect(() => {
   tenzied(boxes, tenzy, setTenzy, alarm, setAlarm);
+  }, [boxes, tenzy, alarm]);
   return (
     <>
     {tenzy && <Confetti {...{ height, width }}/>}
