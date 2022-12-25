@@ -8,8 +8,10 @@ import windowResized from "./events/windowResized";
 import tenzied from "./events/tenzied";
 
 function App() {
+console.log(" App ")
 var [boxes, setBoxes] = useState(generateBoxes);
 var [tenzy, setTenzy] = useState(false);
+var [alarm, setAlarm] = useState(false);
 var [HW, setHW] = useState([document.body.clientHeight, document.body.clientWidth]);
 var [height, width] = HW;
   function buttonClicked() {
@@ -36,14 +38,14 @@ var [height, width] = HW;
   button.style.font = font;
   window.addEventListener("resize", resized);
   }, [HW]);
-  tenzied(boxes, tenzy, setTenzy);
+  tenzied(boxes, tenzy, setTenzy, alarm, setAlarm);
   return (
     <>
     {tenzy && <Confetti {...{ height, width }}/>}
     <div className="container">
       {!tenzy?
       <main>
-        <Boxes {...{boxes, setBoxes, tenzy, boxClicked}}/>
+        <Boxes {...{boxes, setBoxes, tenzy, boxClicked, alarm}}/>
       </main>
       :<Won {...{HW, random: boxes[0].random}}/>}
       <button onClick={buttonClicked}>{tenzy?`RESET`:`ROLL`}</button>

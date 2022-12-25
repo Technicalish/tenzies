@@ -49,14 +49,16 @@ main {
 .box {
   position: relative;
   text-align: center;
-  background: #ddd;
-  border-radius: 25%;
+  background: transparent;
   animation: rotate 1s;
   user-select: none;
   cursor: pointer;
 }
-.box.dark {
-  background: #cfc;
+.box.red {
+  filter: invert(10%) sepia(100%) saturate(5924%) hue-rotate(360deg) brightness(131%) contrast(114%);
+}
+.box.hide {
+  opacity: 0;
 }
 .box img {
   width: 100%;
@@ -76,4 +78,5 @@ button {
   background: #000;
   color: #fff;
   border-radius: 10%;
+  user-select: none;
 }
