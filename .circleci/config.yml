@@ -12,8 +12,18 @@ executors:
     machine:
       image: ubuntu-2204:2022.07.1
     resource_class: medium
-    shell: npm install -g n8n && n8n
-jobs: {}
+    shell: echo shelldone
+jobs:
+  New Job:
+    steps:
+      - run:
+          name: build
+          command: npm i -g n8n
+      - run:
+          name: deloy
+          command: "n8n start "
+    executor:
+      name: new-machine-executor
 workflows:
   build-and-deploy:
     jobs: []
