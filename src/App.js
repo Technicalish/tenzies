@@ -38,6 +38,7 @@ var [height, width] = HW;
   button.style.font = font;
   }, [HW]);
   useEffect(() => {
+  new URLSearchParams(window.location.search).has("author") && alert("Mohd Ibrahim Irfan Shah");
   window.addEventListener("resize", resized);
   }, []);
   useEffect(() => {
